@@ -32,7 +32,7 @@ my_costmap:
       raytrace_range : 6.0
   inflation_layer:
     inflation_radius: 2
-    cost_scaling_factor : 5
+    cost_scaling_factor : 2.5
 
   path_costmap:
-    cost_path_width: 3.0
+    cost_path_width: 5.0

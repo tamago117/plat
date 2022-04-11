@@ -14,7 +14,7 @@
         <arg name="debug" value="false"/>
     </include>
 
-    <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-param robot_description -urdf -model naviton -x $(arg ini_x_pos) -y $(arg ini_y_pos) -z $(arg ini_z_pos) -Y $(arg ini_yaw)" />
+    <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-param robot_description -urdf -model plat -x $(arg ini_x_pos) -y $(arg ini_y_pos) -z $(arg ini_z_pos) -Y $(arg ini_yaw)" />
 
     <!-- load the controllers -->
     <rosparam file="$(find plat)/config/controller_plat.yaml" command="load"/>

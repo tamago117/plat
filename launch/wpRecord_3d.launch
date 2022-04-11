@@ -1,16 +1,16 @@
 <?xml version="1.0"?>
 <launch>
     <arg name="map_frame_id" default="map"/>
-    <arg name="base_link_frame_id" default="base_foot_point"/>
+    <arg name="base_link_frame_id" default="base_link"/>
     <arg name="loop_rate" default="50"/>
     <arg name="fileName" default="way1"/>
 
-    <arg name="sim" default="true"/>
-    <!--<arg name="world_name" default="$(find eg_navigation)/worlds/clearpath_playpen.world"/>-->
-    <arg name="world_name" default="$(find eg_navigation)/worlds/autoware.world"/>
-    <!--<arg name="map_pcd" value = "$(find eg_navigation)/resources/pcd/clearpath.pcd"/>-->
-    <arg name="map_pcd" value = "$(find eg_navigation)/resources/pcd/autoware.pcd"/>
-    <arg name="model" default="$(find eg_navigation)/robots/plat.urdf.xacro" />
+    <arg name="sim" default="false"/>
+    <!--<arg name="world_name" default="$(find plat)/worlds/clearpath_playpen.world"/>-->
+    <arg name="world_name" default="$(find plat)/worlds/autoware.world"/>
+    <!--<arg name="map_pcd" value = "$(find plat)/resources/pcd/clearpath.pcd"/>-->
+    <arg name="map_pcd" value = "$(find plat)/resources/pcd/autoware.pcd"/>
+    <arg name="model" default="$(find plat)/robots/plat.urdf.xacro" />
 
     <!--gazebo-->
     <group if="$(arg sim)">
@@ -23,14 +23,14 @@
     <include file="$(find plat)/launch/include/sensor_process.launch"/>
 
     <!--model show-->
-    <include file="$(find eg_navigation)/launch/include/model_show.launch" >
+    <include file="$(find plat)/launch/include/model_show.launch" >
         <arg name="include" value="true"/>
         <arg name="model" default="$(arg model)" />
     </include>
     <!--3d localization-->
-    <include file="$(find eg_navigation)/launch/include/slam_3d.launch">
+    <include file="$(find plat)/launch/include/slam_3d.launch">
         <arg name="map_pcd" value = "$(arg map_pcd)"/>
-        <arg name="mcl_3dl_config" value="$(find eg_navigation)/config/mcl_3dl.yaml"/>
+        <arg name="mcl_3dl_config" value="$(find plat)/config/mcl_3dl.yaml"/>
     </include>
 
     <!--joystick-->
@@ -71,12 +71,12 @@
     </node>
 
     <node name="csvOutput" pkg="eg_wptool" type="csvOutput">
-        <param name="filePath" value="$(find eg_navigation)/csv/$(arg fileName)"/>
+        <param name="filePath" value="$(find plat)/csv/$(arg fileName)"/>
         <remap from="csv_array"  to="path2csv"/>
     </node>
 
     <!--rviz-->
-    <arg name="rvizconfig" default="$(find eg_navigation)/rviz/wpRecord_3d.rviz" />
+    <arg name="rvizconfig" default="$(find plat)/rviz/wpRecord_3d.rviz" />
     <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)" respawn="true" />
     
 </launch>

@@ -1,6 +1,6 @@
 <launch>
-    <!--<arg name="map_pcd" value="$(find eg_navigation)/resources/pcd/clearpath.pcd" />-->
-    <arg name="map_pcd" value="$(find eg_navigation)/resources/pcd/daigaku.pcd" />
+    <!--<arg name="map_pcd" value="$(find plat)/resources/pcd/clearpath.pcd" />-->
+    <arg name="map_pcd" value="$(find plat)/resources/pcd/daigaku.pcd" />
     
 
     <node pkg="pcl_ros" type="pcd_to_pointcloud" name="pcd_to_pointcloud"
@@ -10,7 +10,7 @@
         <remap from="cloud_pcd" to="mapcloud" />
     </node>
 
-    <arg name="rvizconfig" default="$(find tvc_navigation)/rviz/map_display.rviz" />
+    <arg name="rvizconfig" default="$(find plat)/rviz/map_display.rviz" />
     <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)" required="true" />
 
 </launch>
