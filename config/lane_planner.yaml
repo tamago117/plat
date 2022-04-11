@@ -1,0 +1,12 @@
+lane_planner:
+    map_frame_id : map
+    lane_width : 2.5
+    vehicle_width : 0.65
+    sampling_number : 7
+    distanceCost_gain : 1.0
+    obstacleCost_gain : 10
+    markerSize : 4.0
+    maxVelocity : 1.2
+    distanceTarget_maxVelocity : 3.0
+    distance_rate : 0.4
+    loop_rate : 20

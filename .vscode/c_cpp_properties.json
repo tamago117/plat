@@ -1,0 +1,47 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "${workspaceFolder}/.vscode/browse.vc.db",
+        "limitSymbolsToIncludedHeaders": false
+      },
+      "includePath": [
+        "/home/catkin_ws/devel/include/**",
+        "/opt/ros/melodic/include/**",
+        "/home/catkin_ws/src/control_panel_plugin/include/**",
+        "/home/catkin_ws/src/create_robot/create_driver/include/**",
+        "/home/catkin_ws/src/eg_navigation/eg_mixed/include/**",
+        "/home/catkin_ws/src/eg_navigation/eg_navigation/include/**",
+        "/home/catkin_ws/src/eg_navigation/eg_planner/include/**",
+        "/home/catkin_ws/src/eg_navigation/eg_safety/include/**",
+        "/home/catkin_ws/src/eg_navigation/eg_track/include/**",
+        "/home/catkin_ws/src/eg_navigation/eg_wptool/include/**",
+        "/home/catkin_ws/src/fast_gicp/include/**",
+        "/home/catkin_ws/src/hdl_global_localization/include/**",
+        "/home/catkin_ws/src/hdl_localization/include/**",
+        "/home/catkin_ws/src/hdl_people_tracking/include/**",
+        "/home/catkin_ws/src/path_planner/include/**",
+        "/home/catkin_ws/src/kcctcore/include/**",
+        "/home/catkin_ws/src/kcctnavigation/include/**",
+        "/home/catkin_ws/src/LeGO-LOAM/LeGO-LOAM/include/**",
+        "/home/catkin_ws/src/ndt_omp/include/**",
+        "/home/catkin_ws/src/pcl_tutorial/include/**",
+        "/home/catkin_ws/src/reeds-shepp-paths-ros/include/**",
+        "/home/catkin_ws/src/rumba_autocar/include/**",
+        "/home/catkin_ws/src/servingbot/serving_mobile/serving_simuation/servingbot_fake/include/**",
+        "/home/catkin_ws/src/servingbot/serving_mobile/serving_simuation/servingbot_gazebo/include/**",
+        "/home/catkin_ws/src/servingbot/serving_mobile/servingbot_slam/include/**",
+        "/home/catkin_ws/src/tukuba_vc/tvc_navigation/include/**",
+        "/home/catkin_ws/src/tukuba_vc/tvc_wpTool/include/**",
+        "/home/catkin_ws/src/waypoint_tools/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS",
+      "intelliSenseMode": "gcc-x64",
+      "compilerPath": "/usr/bin/gcc",
+      "cStandard": "gnu11",
+      "cppStandard": "c++14"
+    }
+  ],
+  "version": 4
+}

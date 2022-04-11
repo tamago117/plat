@@ -1,0 +1,9 @@
+map_update_interval: 2.0
+temporalUpdate: 1.0
+xmin: -6.0
+xmax:  6.0
+ymin: -6.0
+ymax:  6.0
+base_frame : base_link
+map_frame : map
+odom_frame : odom

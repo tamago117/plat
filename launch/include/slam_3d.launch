@@ -1,0 +1,10 @@
+<launch>
+    <arg name="map_pcd" default = "$(find plat)/resources/pcd/clearpath.pcd"/>
+    <arg name="generate_test_bag" default="false" />
+    <arg name="mcl_3dl_config" default="$(find plat)/config/mcl_3dl.yaml"/>
+
+    <include file="$(find plat)/launch/hdl_localization.launch">
+        <arg name="map_pcd" value = "$(arg map_pcd)"/>
+    </include>
+
+</launch>
