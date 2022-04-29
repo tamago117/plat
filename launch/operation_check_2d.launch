@@ -9,6 +9,12 @@
             <arg name="world_name" value="$(arg world_name)"/>
         </include>
     </group>
+    <group unless="$(arg sim)">
+        <node name="serial_node"        pkg="rosserial_python"      type="serial_node.py">
+			<param name="port"              type="string"               value="/dev/ttyACM0"/>
+			<param name="baud"              type="int"                  value="115200"/>
+		</node>
+    </group>
 
     <!--sensor process-->
     <include file="$(find plat)/launch/include/sensor_process.launch"/>
