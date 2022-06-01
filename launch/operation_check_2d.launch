@@ -13,6 +13,7 @@
         <node name="serial_node"        pkg="rosserial_python"      type="serial_node.py">
 			<param name="port"              type="string"               value="/dev/ttyACM0"/>
 			<param name="baud"              type="int"                  value="115200"/>
+            <remap from="plat/cmd_vel" to="diff_drive_controller/cmd_vel"/>
 		</node>
     </group>
 
