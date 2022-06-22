@@ -11,10 +11,9 @@
         </include>
     </group>
     <group unless="$(arg sim)">
-        <node name="serial_node"        pkg="rosserial_python"      type="serial_node.py">
-			<param name="port"              type="string"               value="/dev/ttyACM0"/>
-			<param name="baud"              type="int"                  value="115200"/>
-		</node>
+        <include file="$(find plat)/launch/include/sensor.launch"/>
+        <node name = "mode_publisher" pkg = "rostopic" type = "rostopic"
+        args = "pub plat/mode_in std_msgs/String -r 1 'run'"/>
     </group>
 
     <!--sensor process-->
@@ -24,12 +23,13 @@
     <!--joystick -> cmd_vel-->
     <node name="joy_node" pkg="joy" type="joy_node"/>
     <node name="joystickPS4" pkg="eg_mixed" type="joystickPS4">
-        <param name="control_rate" value="1.0"/>
+        <param name="v_control_rate" value="0.8"/>
+        <param name="w_control_rate" value="0.4"/>
         <remap from="cmd_vel" to="diff_drive_controller/cmd_vel"/>
     </node>
 
     <!--rviz-->
-    <include file="$(find eg_navigation)/launch/include/model_show.launch" >
+    <include file="$(find plat)/launch/include/model_show.launch" >
         <arg name="include" value="true"/>
         <arg name="model" default="$(arg model)" />
     </include>

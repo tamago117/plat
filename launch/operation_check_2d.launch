@@ -1,6 +1,6 @@
 <launch>
     <arg name="rviz" default="true"/>
-    <arg name="sim" default="true"/>
+    <arg name="sim" default="false"/>
     <arg name="world_name" default="$(find plat)/worlds/clearpath_playpen.world"/>
     <arg name="model" default="$(find plat)/robots/plat.urdf.xacro" />
 
@@ -10,10 +10,9 @@
         </include>
     </group>
     <group unless="$(arg sim)">
-        <node name="serial_node"        pkg="rosserial_python"      type="serial_node.py">
-			<param name="port"              type="string"               value="/dev/ttyACM0"/>
-			<param name="baud"              type="int"                  value="115200"/>
-		</node>
+        <include file="$(find plat)/launch/include/sensor.launch"/>
+        <node name = "mode_publisher" pkg = "rostopic" type = "rostopic"
+        args = "pub plat/mode_in std_msgs/String -r 1 'run'"/>
     </group>
 
     <!--sensor process-->

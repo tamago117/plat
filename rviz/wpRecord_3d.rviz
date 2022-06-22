@@ -6,6 +6,7 @@ Panels:
       Expanded:
         - /Global Options1
         - /Status1
+        - /TFTrajectory1
         - /TF1/Frames1
         - /TF1/Tree1
         - /MapCloud1
@@ -120,8 +121,8 @@ Visualization Manager:
     - Alpha: 1
       Autocompute Intensity Bounds: true
       Autocompute Value Bounds:
-        Max Value: 0.955595850944519
-        Min Value: -0.36466383934020996
+        Max Value: 0.880810022354126
+        Min Value: 0.880810022354126
         Value: true
       Axis: Z
       Channel Name: intensity
@@ -166,7 +167,7 @@ Visualization Manager:
       Value: true
       color: 25; 255; 240
       duration: 1000
-      frame: base_link
+      frame: map
       line_width: 0.25
     - Class: rviz/TF
       Enabled: true
@@ -189,8 +190,6 @@ Visualization Manager:
           Value: false
         map:
           Value: true
-        odom:
-          Value: true
         right_wheel_link:
           Value: false
         velodyne:
@@ -203,24 +202,25 @@ Visualization Manager:
       Show Axes: true
       Show Names: true
       Tree:
+        base_footprint:
+          {}
         map:
+          base_link:
+            camera_link:
+              {}
+            front_lrf_link:
+              {}
+            imu_link:
+              {}
+            left_wheel_link:
+              {}
+            right_wheel_link:
+              {}
+            velodyne_base_link:
+              velodyne:
+                {}
           floor:
             {}
-          odom:
-            base_link:
-              camera_link:
-                {}
-              front_lrf_link:
-                {}
-              imu_link:
-                {}
-              left_wheel_link:
-                {}
-              right_wheel_link:
-                {}
-              velodyne_base_link:
-                velodyne:
-                  {}
       Update Interval: 0
       Value: true
     - Alpha: 1
@@ -328,14 +328,14 @@ Visualization Manager:
       Marker Topic: /safety_limit/next_robot_position
       Name: Marker
       Namespaces:
-        {}
+        next_robot_position: true
       Queue Size: 100
       Value: true
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
     Default Light: true
-    Fixed Frame: map
+    Fixed Frame: base_link
     Frame Rate: 30
   Name: root
   Tools:
@@ -359,7 +359,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 63.111358642578125
+      Distance: 70.36643981933594
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -374,10 +374,10 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 1.2647963762283325
+      Pitch: 1.284796118736267
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 3.080357074737549
+      Yaw: 3.3203649520874023
     Saved: ~
 Window Geometry:
   Displays:
