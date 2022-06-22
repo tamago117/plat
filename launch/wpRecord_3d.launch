@@ -10,29 +10,27 @@
     <arg name="world_name" default="$(find plat)/worlds/autoware.world"/>
     <!--<arg name="map_pcd" value = "$(find plat)/resources/pcd/clearpath.pcd"/>-->
     <arg name="map_pcd" value = "$(find plat)/resources/pcd/autoware.pcd"/>
-    <arg name="model" default="$(find plat)/robots/plat.urdf.xacro" />
+    <!--<arg name="map_pcd" value = "$(find plat)/resources/pcd/3L.pcd"/>-->
+
+    <arg name="model" default="$(find plat)/robots/plat.urdf.xacro"/>
 
     <!--gazebo-->
     <group if="$(arg sim)">
-        <include file="$(find plat)/launch/include/sim.launch" >
+        <include file="$(find plat)/launch/include/sim.launch">
             <arg name="world_name" value="$(arg world_name)"/>
         </include>
     </group>
     <group unless="$(arg sim)">
-        <node name="serial_node"        pkg="rosserial_python"      type="serial_node.py">
-			<param name="port"              type="string"               value="/dev/ttyACM0"/>
-			<param name="baud"              type="int"                  value="115200"/>
-		</node>
+        <!--<node name="map_static" pkg="tf2_ros" type="static_transform_publisher"
+            args="0 0 0 0 0 0 map odom"/>-->
+        <include file="$(find plat)/launch/include/sensor.launch"/>
+        <node name = "mode_publisher" pkg = "rostopic" type = "rostopic"
+        args = "pub plat/mode_in std_msgs/String -r 1 'run'"/>
     </group>
 
     <!--sensor process-->
     <include file="$(find plat)/launch/include/sensor_process.launch"/>
 
-    <!--model show-->
-    <include file="$(find plat)/launch/include/model_show.launch" >
-        <arg name="include" value="true"/>
-        <arg name="model" default="$(arg model)" />
-    </include>
     <!--3d localization-->
     <include file="$(find plat)/launch/include/slam_3d.launch">
         <arg name="map_pcd" value = "$(arg map_pcd)"/>
@@ -41,7 +39,8 @@
 
     <!--joystick-->
     <node name="joystickPS4" pkg="eg_mixed" type="joystickPS4">
-        <param name="control_rate" value="1.0"/>
+        <param name="v_control_rate" value="0.8"/>
+        <param name="w_control_rate" value="0.4"/>
         <remap from="cmd_vel" to="ps4/cmd_vel"/>
     </node>
     <node name="joy_node" pkg="joy" type="joy_node"/>
@@ -82,7 +81,12 @@
     </node>
 
     <!--rviz-->
+    <!--model show-->
+    <include file="$(find plat)/launch/include/model_show.launch" >
+        <arg name="include" value="true"/>
+        <arg name="model" default="$(arg model)" />
+    </include>
     <arg name="rvizconfig" default="$(find plat)/rviz/wpRecord_3d.rviz" />
     <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)" respawn="true" />
-    
+
 </launch>

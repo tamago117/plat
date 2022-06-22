@@ -1,6 +1,6 @@
 <launch>
     <arg name="rviz" default="true"/>
-    <arg name="sim" default="true"/>
+    <arg name="sim" default="false"/>
     <arg name="world_name" default="$(find plat)/worlds/clearpath_playpen.world"/>
     <arg name="model" default="$(find plat)/robots/plat.urdf.xacro" />
 

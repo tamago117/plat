@@ -6,7 +6,7 @@ lane_planner:
     distanceCost_gain : 1.0
     obstacleCost_gain : 10
     markerSize : 4.0
-    maxVelocity : 1.2
+    maxVelocity : 0.8
     distanceTarget_maxVelocity : 3.0
     distance_rate : 0.4
     loop_rate : 20

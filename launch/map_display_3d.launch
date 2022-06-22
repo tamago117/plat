@@ -1,6 +1,6 @@
 <launch>
     <!--<arg name="map_pcd" value="$(find plat)/resources/pcd/clearpath.pcd" />-->
-    <arg name="map_pcd" value="$(find plat)/resources/pcd/0.15_map_all.pcd" />
+    <arg name="map_pcd" value="$(find plat)/resources/pcd/3L.pcd" />
     
 
     <node pkg="pcl_ros" type="pcd_to_pointcloud" name="pcd_to_pointcloud"
