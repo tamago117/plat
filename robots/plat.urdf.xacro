@@ -44,8 +44,6 @@
   	<origin xyz="0.045 0 -0.06" rpy="0 ${M_PI} ${M_PI}"/>
   </xacro:lrf_v0>
 
-  <!-- Rear LRF -->
-
   <link name="camera_link"/>
   <joint name="lrf_link_joint" type="fixed">
 	  <parent link="base_link"/>
@@ -83,7 +81,7 @@
   <xacro:imu_macro prefix="imu" parent="base_link" xyz="0 0 0"/>
 
   <!-- LRF -->
-  <xacro:lrf_gazebo_v0 topic_name="scan1" prefix="front"
+  <xacro:lrf_gazebo_v0 topic_name="/urg/scan" prefix="front"
 					   min_rad="-1.65806278939" max_rad="1.65806278939"
 					   min_range="0.10" max_range="60.0"/>
   <!-- VHDL-32E -->
