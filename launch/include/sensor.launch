@@ -45,7 +45,7 @@
 			<param name="port"              type="string"               value="/dev/ttyACM0"/>
 			<param name="baud"              type="int"                  value="115200"/>
       <remap from="plat/cmd_vel" to="diff_drive_controller/cmd_vel"/>
-      <remap from="plat/mode_in" to="mode">
-		</node>
+      <remap from="plat/mode_in" to="mode"/>
+	</node>
 
 </launch>

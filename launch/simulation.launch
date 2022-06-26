@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+
+<launch>
+    <!--<arg name="way_file" default="way1_3d.csv"/>-->
+    <arg name="way_file" default="way_autoware.csv"/>
+
+    
+    <!--<arg name="world_name" default="$(find plat)/worlds/clearpath_playpen.world"/>-->
+    <arg name="world_name" default="$(find plat)/worlds/autoware.world"/>
+    <!--<arg name="map_pcd" value = "$(find plat)/resources/pcd/clearpath.pcd"/>-->
+    <arg name="map_pcd" value = "$(find plat)/resources/pcd/autoware.pcd"/>
+
+    <include file="$(find plat)/launch/navigation_3d.launch" >
+        <arg name="sim" value="true"/>
+        <arg name="way_file" value="$(arg way_file)"/>
+        <arg name="world_name" value="$(arg world_name)"/>
+        <arg name="map_pcd" value="$(arg map_pcd)"/>
+    </include>
+
+</launch>
