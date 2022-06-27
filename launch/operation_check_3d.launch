@@ -13,7 +13,7 @@
     <group unless="$(arg sim)">
         <include file="$(find plat)/launch/include/sensor.launch"/>
         <node name = "mode_publisher" pkg = "rostopic" type = "rostopic"
-        args = "pub plat/mode_in std_msgs/String -r 1 'run'"/>
+        args = "pub mode std_msgs/String -r 1 'run'"/>
     </group>
 
     <!--sensor process-->

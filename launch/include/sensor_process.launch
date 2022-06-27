@@ -34,5 +34,7 @@
         <param name="laserscan_topics" value ="/urg/scan /velodyne/scan"/>
    		<param name="angle_min" value="-3.14"/>
   		<param name="angle_max" value="3.14"/>
+        <param name="range_min" value="0.05"/>
+	    <param name="range_max" value="50.0"/>
 	</node>
 </launch>

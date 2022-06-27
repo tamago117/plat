@@ -5,7 +5,7 @@
   <arg name="frame_id" default="velodyne" />
   <arg name="manager" default="$(arg frame_id)_nodelet_manager_" />
   <arg name="max_range" default="100.0" />
-  <arg name="min_range" default="0.65" />
+  <arg name="min_range" default="0.7" />
   <arg name="pcap" default="" />
   <arg name="port" default="2368" />
   <arg name="read_fast" default="false" />
@@ -28,17 +28,19 @@
     <arg name="repeat_delay" value="$(arg repeat_delay)"/>
     <arg name="rpm" value="$(arg rpm)"/>
     <arg name="cut_angle" value="$(arg cut_angle)"/>
+    <arg name="max_range" default="$(arg max_range)" />
+    <arg name="min_range" default="$(arg min_range)" />
   </include>
 
   <node name="urg_node" pkg="urg_node" type="urg_node" output="screen">
  	  <remap from="/scan" to="/urg/scan"/>
     <param name="ip_address" value="192.168.6.119"/>
-   	<param name="frame_id" value="lidar_link"/>
+   	<param name="frame_id" value="front_lrf_link"/>
    	<param name="calibrate_time" value="true"/>
    	<param name="publish_intensity" value="false"/>
    	<param name="publish_multiecho" value="false"/>
-   	<param name="angle_min" value="-1.207963"/>
-  	<param name="angle_max" value="1.207963"/>
+   	<param name="angle_min" value="-1.157963"/>
+  	<param name="angle_max" value="1.157963"/>
 	</node>
 
   <node name="serial_node"        pkg="rosserial_python"      type="serial_node.py">
