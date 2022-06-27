@@ -3,10 +3,10 @@
 <launch>
     <!--<arg name="fileName" default="way1_3d.csv"/>-->
     <!--<arg name="fileName" default="way_autoware.csv"/>-->
-    <arg name="fileName" default="3L.csv"/>
+    <arg name="fileName" default="rouka.csv"/>
     <!--<arg name="map_pcd" value = "$(find plat)/resources/pcd/clearpath.pcd"/>-->
     <!--<arg name="map_pcd" value = "$(find plat)/resources/pcd/autoware.pcd"/>-->
-    <arg name="map_pcd" value = "$(find plat)/resources/pcd/3L.pcd"/>
+    <arg name="map_pcd" value = "$(find plat)/resources/pcd/rouka.pcd"/>
 
     <node name="wpLoad" pkg="eg_wptool" type="wpLoad" output="screen">
         <param name="filePath" value="$(find plat)/csv/$(arg fileName)"/>

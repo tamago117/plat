@@ -3,14 +3,14 @@
 <launch>
     <!--<arg name="way_file" default="way1_3d.csv"/>-->
     <!--<arg name="way_file" default="way_autoware.csv"/>-->
-    <arg name="way_file" default="3L.csv"/>
+    <arg name="way_file" default="rouka.csv"/>
 
     <arg name="sim" default="false"/>
     <!--<arg name="world_name" default="$(find plat)/worlds/clearpath_playpen.world"/>-->
     <arg name="world_name" default="$(find plat)/worlds/autoware.world"/>
     <!--<arg name="map_pcd" value = "$(find plat)/resources/pcd/clearpath.pcd"/>-->
     <!--<arg name="map_pcd" value = "$(find plat)/resources/pcd/autoware.pcd"/>-->
-    <arg name="map_pcd" value = "$(find plat)/resources/pcd/3L.pcd"/>
+    <arg name="map_pcd" default = "$(find plat)/resources/pcd/rouka.pcd"/>
     <arg name="model" default="$(find plat)/robots/plat.urdf.xacro" />
 
     <!--gazebo-->
@@ -22,8 +22,6 @@
 
     <group unless="$(arg sim)">
         <include file="$(find plat)/launch/include/sensor.launch"/>
-        <node name = "mode_publisher" pkg = "rostopic" type = "rostopic"
-        args = "pub plat/mode_in std_msgs/String -r 1 'run'"/>
     </group>
 
     <!--sensor process-->
@@ -104,8 +102,8 @@
         <param name="loop_rate" value="20"/>
         <param name="linear_vel" value="-0.5"/>
         <param name="max_angular_vel" value="0.5"/>
-        <param name="duration" value="0.1"/>
-        <param name="recovery_leastDistance" value="2.0"/>
+        <param name="duration" value="5"/>
+        <param name="recovery_leastDistance" value="1.0"/>
         <param name="fin_recovery_deviation" value="0.2"/>
         <remap from="path" to="wayPoint/path"/>
     </node>

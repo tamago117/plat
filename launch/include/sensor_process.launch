@@ -4,6 +4,7 @@
     <group if="$(arg toLaserScan)">
         <node pkg="pointcloud_to_laserscan" type="pointcloud_to_laserscan_node" name="pointcloud_to_laserscan">
             <remap from="cloud_in" to="velodyne_points"/>
+            <remap from="scan" to="/velodyne/scan"/>
             <rosparam>
                 target_frame: velodyne # Leave disabled to output scan in pointcloud frame
                 transform_tolerance: 0.01
@@ -26,12 +27,14 @@
         </node>
     </group>
 
-    <!--<node pkg="ira_laser_tools" name="laserscan_multi_merger" type="laserscan_multi_merger" output="screen" respawn="true">
+    <node pkg="ira_laser_tools" name="laserscan_multi_merger" type="laserscan_multi_merger" output="screen" respawn="true">
 		<param name="destination_frame" value="camera_link"/>
 		<param name="cloud_destination_topic" value="/merged_cloud"/>
 		<param name="scan_destination_topic" value="/scan"/>
-        <param name="laserscan_topics" value ="/scan1 /scan2"/>
+        <param name="laserscan_topics" value ="/urg/scan /velodyne/scan"/>
    		<param name="angle_min" value="-3.14"/>
   		<param name="angle_max" value="3.14"/>
-	</node>-->
+        <param name="range_min" value="0.05"/>
+	    <param name="range_max" value="50.0"/>
+	</node>
 </launch>
