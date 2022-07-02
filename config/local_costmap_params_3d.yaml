@@ -35,4 +35,4 @@ my_costmap:
     cost_scaling_factor : 2.5
 
   path_costmap:
-    cost_path_width: 5.0
+    cost_path_width: 4.0
