@@ -41,7 +41,7 @@
 
   <!-- Front LRF -->
   <xacro:lrf_v0 prefix="front" parent="base_link">
-  	<origin xyz="0.045 0 -0.06" rpy="0 ${M_PI} ${M_PI}"/>
+  	<origin xyz="0.045 0 -0.06" rpy="0 0 0"/>
   </xacro:lrf_v0>
 
   <link name="camera_link"/>
