@@ -23,7 +23,7 @@
 	  </collision>
 	  <inertial>
 		<origin xyz="-0.04 0 -0.1"/>
-		<box_inertial mass="0.85" height="0.1" width="0.05" depth="0.25"/>
+		<xacro:box_inertial mass="0.85" height="0.1" width="0.05" depth="0.25"/>
 	  </inertial>
     </link>
   </xacro:macro>
