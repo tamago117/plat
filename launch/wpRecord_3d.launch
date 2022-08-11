@@ -9,8 +9,8 @@
     <!--<arg name="world_name" default="$(find plat)/worlds/clearpath_playpen.world"/>-->
     <arg name="world_name" default="$(find plat)/worlds/autoware.world"/>
     <!--<arg name="map_pcd" value = "$(find plat)/resources/pcd/clearpath.pcd"/>-->
-    <!--<arg name="map_pcd" value = "$(find plat)/resources/pcd/autoware.pcd"/>-->
-    <arg name="map_pcd" value = "$(find plat)/resources/pcd/3L.pcd"/>
+    <arg name="map_pcd" value = "$(find plat)/resources/pcd/autoware.pcd"/>
+    <!--<arg name="map_pcd" value = "$(find plat)/resources/pcd/3L.pcd"/>-->
 
     <arg name="model" default="$(find plat)/robots/plat.urdf.xacro"/>
 
@@ -40,7 +40,7 @@
     <!--joystick-->
     <node name="joystickPS4" pkg="eg_mixed" type="joystickPS4">
         <param name="v_control_rate" value="0.8"/>
-        <param name="w_control_rate" value="0.4"/>
+        <param name="w_control_rate" value="1.5"/>
         <remap from="cmd_vel" to="ps4/cmd_vel"/>
     </node>
     <node name="joy_node" pkg="joy" type="joy_node"/>
@@ -48,15 +48,7 @@
     <!--safety function-->
     <node pkg="eg_mixed" name="laser2pc" type="laser2pc"/>
     <node pkg="eg_safety" name="safety_limit" type="safety_limit" output="screen">
-        <param name="max_nn" value="100"/>
-        <param name="robot_radius" value="0.6"/>
-        <param name="x_max" value="3.0"/>
-        <param name="x_min" value="-1.0"/>
-        <param name="y_max" value="0.7"/>
-        <param name="y_min" value="-0.7"/>
-        <param name="loop_rate" value="50"/>
-        <param name="dt" value="0.5"/>
-        <param name="recovery_start_time" value="0.5"/>
+        <rosparam file="$(find plat)/config/safety_limit.yaml" command="load" />
 
         <remap from="safety_limit/cmd_vel_in" to="ps4/cmd_vel"/>
         <remap from="safety_limit/cmd_vel_out" to="diff_drive_controller/cmd_vel"/>
