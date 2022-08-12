@@ -26,7 +26,7 @@ Panels:
     Experimental: false
     Name: Time
     SyncMode: 0
-    SyncSource: LaserScan
+    SyncSource: mapCloud
   - Class: control_panel_plugin/modeSelect
     Name: modeSelect
 Preferences:
@@ -64,11 +64,11 @@ Visualization Manager:
         Expand Link Details: false
         Expand Tree: false
         Link Tree Style: Links in Alphabetic Order
-        base_footprint:
+        base_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-        base_link:
+        body_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -223,10 +223,10 @@ Visualization Manager:
       Frame Timeout: 15
       Frames:
         All Enabled: false
-        base_footprint:
-          Value: true
         base_link:
           Value: false
+        body_link:
+          Value: true
         camera_link:
           Value: false
         floor:
@@ -238,8 +238,6 @@ Visualization Manager:
         left_wheel_link:
           Value: false
         map:
-          Value: true
-        odom:
           Value: true
         right_wheel_link:
           Value: false
@@ -254,13 +252,9 @@ Visualization Manager:
       Show Axes: true
       Show Names: true
       Tree:
-        base_footprint:
-          {}
         map:
-          floor:
-            {}
-          odom:
-            base_link:
+          base_link:
+            body_link:
               camera_link:
                 {}
               front_lrf_link:
@@ -274,6 +268,8 @@ Visualization Manager:
               velodyne_base_link:
                 velodyne:
                   {}
+          floor:
+            {}
       Update Interval: 0
       Value: true
     - Alpha: 1
@@ -479,7 +475,7 @@ Visualization Manager:
   Global Options:
     Background Color: 48; 48; 48
     Default Light: true
-    Fixed Frame: base_link
+    Fixed Frame: map
     Frame Rate: 30
   Name: root
   Tools:
@@ -503,7 +499,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/XYOrbit
-      Distance: 19.694318771362305
+      Distance: 19.119163513183594
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -511,17 +507,17 @@ Visualization Manager:
         Value: false
       Field of View: 0.7853981852531433
       Focal Point:
-        X: -0.4938778877258301
-        Y: 1.2699191570281982
-        Z: -5.960464477539063e-08
+        X: 0.49234282970428467
+        Y: -5.65439510345459
+        Z: 1.8477439880371094e-06
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.6947970390319824
-      Target Frame: <Fixed Frame>
-      Yaw: 1.7653850317001343
+      Pitch: 0.9397969245910645
+      Target Frame: base_link
+      Yaw: 4.865386962890625
     Saved: ~
 Window Geometry:
   Displays:
