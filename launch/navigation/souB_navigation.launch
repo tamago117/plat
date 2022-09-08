@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<launch>
+    <arg name="way_file" default="souB.csv"/>
+    <arg name="map_pcd" value = "$(find plat)/resources/pcd/souB.pcd"/>
+
+    <include file="$(find plat)/launch/navigation_3d.launch" >
+        <arg name="sim" value="false"/>
+        <arg name="way_file" value="$(arg way_file)"/>
+        <arg name="map_pcd" value="$(arg map_pcd)"/>
+    </include>
+
+</launch>
