@@ -44,7 +44,7 @@
     </node>
     <node name="wpVisualizer" pkg="eg_wptool" type="wpVisualizer">
         <remap from="path" to="wayPoint/path"/>
-        <param name="markerSize" value="5.0"/>
+        <param name="markerSize" value="8.0"/>
     </node>
     <node name="wpSelect" pkg="eg_wptool" type="wpSelect">
         <param name="base_link_frame_id" value="base_link"/>
@@ -53,7 +53,7 @@
         <param name="loop_rate" value="20"/>
         <param name="target_deviation" value="1.5"/>
         <param name="final_target_deviation" value="0.5"/>
-        <param name="failed_target_deviation_rate" value="4.0"/>
+        <param name="failed_target_deviation_rate" value="2.0"/>
         <remap from="path" to="wayPoint/path"/>
         <remap from="successPlan" to="astar_planning_node/successPlan"/>
     </node>
@@ -87,10 +87,10 @@
     <node name="pure_posePursuit" pkg="eg_track" type="pure_posePursuit">
         <param name="base_link_frame_id" value="base_link"/>
         <param name="map_frame_id" value="map"/>
-        <param name="loop_rate" value="30"/>
+        <param name="loop_rate" value="50"/>
         <param name="maxVelocity" value="1.1"/>
         <param name="minVelocity" value="0.0"/>
-        <param name="max_angular_vel" value="0.4"/>
+        <param name="max_angular_vel" value="0.35"/>
         <param name="maxCurvature" value="4"/>
         <remap from="pure_posePursuit/pose_in" to="lane_planner/pose_out"/>
     </node>
@@ -102,8 +102,8 @@
         <param name="loop_rate" value="20"/>
         <param name="linear_vel" value="-0.5"/>
         <param name="max_angular_vel" value="0.5"/>
-        <param name="duration" value="5"/>
-        <param name="recovery_leastDistance" value="1.0"/>
+        <param name="duration" value="2"/>
+        <param name="recovery_leastDistance" value="0.5"/>
         <param name="fin_recovery_deviation" value="0.2"/>
         <remap from="path" to="wayPoint/path"/>
     </node>
@@ -117,8 +117,8 @@
     <node name="twist_maneger" pkg="eg_navigation" type="twist_maneger">
         <param name="base_link_frame_id" value="base_link"/>
         <param name="map_frame_id" value="map"/>
-        <param name="angleAdjustGain" value="2.0"/>
-        <param name="loop_rate" value="30"/>
+        <param name="angleAdjustGain" value="4.0"/>
+        <param name="loop_rate" value="50"/>
         <remap from="twist_maneger/targetWpPose_in" to="targetWpPose"/>
         <remap from="twist_maneger/targetPose_in" to="lane_planner/pose_out"/>
         <remap from="cmd_vel" to="pure_posePursuit/cmd_vel"/>
