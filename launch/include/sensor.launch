@@ -39,8 +39,8 @@
    	<param name="calibrate_time" value="true"/>
    	<param name="publish_intensity" value="false"/>
    	<param name="publish_multiecho" value="false"/>
-   	<param name="angle_min" value="-1.157963"/>
-  	<param name="angle_max" value="1.157963"/>
+   	<param name="angle_min" value="-0.4"/>
+  	<param name="angle_max" value="0.4"/>
 	</node>
 
   <node name="serial_node"        pkg="rosserial_python"      type="serial_node.py">
