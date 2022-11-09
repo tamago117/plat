@@ -90,7 +90,7 @@
         <param name="loop_rate" value="50"/>
         <param name="maxVelocity" value="1.2"/>
         <param name="minVelocity" value="0.0"/>
-        <param name="max_angular_vel" value="0.3"/>
+        <param name="max_angular_vel" value="0.35"/>
         <param name="maxCurvature" value="2.0"/>
         <remap from="pure_posePursuit/pose_in" to="lane_planner/pose_out"/>
     </node>
@@ -138,7 +138,7 @@
     </node>
 
     <!--machine voice-->
-    <node pkg="plat" name="voice" type="voice" output="screen"/>
+    <node pkg="plat" name="voice" type="voice"/>
     <node pkg="ros_talker_py" name="ros_jtalker_sub" type="ros_jtalker_sub.py">
         <remap from="txt" to="plat/voice_txt"/>
     </node>
