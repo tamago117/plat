@@ -12,7 +12,7 @@
 #include <std_msgs/UInt8MultiArray.h>
 #include <std_msgs/Int32.h>
 #include <string>
-#include "plat/robot_status.h"
+#include "eg_navigation/robot_status.h"
 
 class voice
 {
