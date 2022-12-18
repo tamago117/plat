@@ -4,7 +4,7 @@ my_costmap:
     - {name: inflation_layer, type: "costmap_2d::InflationLayer"}
   global_frame: floor
   robot_base_frame: base_link
-  footprint: [[0.4,0.4], [-0.65,0.4], [-0.65,-0.4], [0.4,-0.4]]
+  footprint: [[0.2,0.32], [-0.55,0.32], [-0.55,-0.32], [0.2,-0.32]]
   #footprint: [[-0.55, 0], [-0.5, 0.38], [0, 0.55], [0.48, 0.38], [0.55, 0], [0.48, -0.38], [0, -0.55], [-0.5, -0.38]]
   rolling_window: true
   width: 40.0
@@ -15,6 +15,7 @@ my_costmap:
 
   obstacle_layer:
     observation_sources: laser_scan_sensor
+    clearing: true
     laser_scan_sensor:
       #sensor_frame: camera_link
       #topic: scan
@@ -30,9 +31,12 @@ my_costmap:
       clearing: true
       obstacle_range : 5.5
       raytrace_range : 6.0
+
+      inf_is_valid: true
   inflation_layer:
     inflation_radius: 2
     cost_scaling_factor : 2.5
 
   path_costmap:
     cost_path_width: 4.0
+    use_dynamic_path_width: true

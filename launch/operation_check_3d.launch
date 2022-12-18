@@ -24,7 +24,7 @@
     <node name="joy_node" pkg="joy" type="joy_node"/>
     <node name="joystickPS4" pkg="eg_mixed" type="joystickPS4">
         <param name="v_control_rate" value="1.3"/>
-        <param name="w_control_rate" value="0.6"/>
+        <param name="w_control_rate" value="0.8"/>
         <remap from="cmd_vel" to="diff_drive_controller/cmd_vel"/>
     </node>
 

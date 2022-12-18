@@ -41,7 +41,7 @@
 
   <!-- Front LRF -->
   <xacro:lrf_v0 prefix="front" parent="body_link">
-  	<origin xyz="0.045 0 -0.06" rpy="0 0 0"/>
+  	<origin xyz="-0.045 0 -0.06" rpy="${M_PI} 0 0"/>
   </xacro:lrf_v0>
 
   <link name="camera_link"/>
@@ -85,7 +85,7 @@
 					   min_rad="-1.157963" max_rad="1.157963"
 					   min_range="0.10" max_range="60.0"/>
   <!-- VHDL-32E -->
-  <xacro:HDL-32E parent="body_link" name="velodyne" topic="velodyne_points" hz="10" samples="1024" gpu="true">
-      <origin xyz="-0.12 0 0.79" rpy="0 0 0" />
+  <xacro:HDL-32E parent="body_link" name="velodyne" topic="velodyne_points" hz="10" samples="1024" min_angle="-2.14" max_angle="2.14" gpu="true">
+      <origin xyz="-0.12 0 0.79" rpy="0 0 0"/>
   </xacro:HDL-32E>
 </robot>
