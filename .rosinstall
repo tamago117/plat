@@ -1,0 +1,5 @@
+repositories:
+  tamago117/eg_navigation:
+    type: git
+    url: git@github.com:tamago117/eg_navigation.git
+    version: master
