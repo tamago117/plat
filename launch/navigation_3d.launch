@@ -46,10 +46,9 @@
         <remap from="path" to="wayPoint/path"/>
         <param name="markerSize" value="8.0"/>
     </node>
-    <node name="wpSelect" pkg="eg_wptool" type="wpSelect">
+    <node name="wpControl" pkg="eg_wptool" type="wpControl">
         <param name="base_link_frame_id" value="base_link"/>
         <param name="map_frame_id" value="map"/>
-        <param name="maxVelocity" value="1.1"/>
         <param name="loop_rate" value="20"/>
         <param name="target_deviation" value="1.5"/>
         <param name="final_target_deviation" value="0.5"/>

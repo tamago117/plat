@@ -30,10 +30,9 @@
         <param name="map_frame_id" value="map"/>
     </node>
     <node name="wpVisualizer" pkg="eg_wptool" type="wpVisualizer">
-        <remap from="path" to="wayPoint/path"/>
         <param name="markerSize" value="5.0"/>
     </node>
-    <node name="wpSelect" pkg="eg_wptool" type="wpSelect">
+    <node name="wpControl" pkg="eg_wptool" type="wpControl">
         <param name="base_link_frame_id" value="base_link"/>
         <param name="map_frame_id" value="map"/>
         <param name="maxVelocity" value="1.1"/>
@@ -41,7 +40,6 @@
         <param name="target_deviation" value="1.5"/>
         <param name="final_target_deviation" value="0.5"/>
         <param name="failed_target_deviation_rate" value="4.0"/>
-        <remap from="path" to="wayPoint/path"/>
         <remap from="successPlan" to="astar_planning_node/successPlan"/>
     </node>
 
