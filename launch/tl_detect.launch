@@ -1,0 +1,13 @@
+<launch>
+    <node name="yolox" pkg="yolox_ros1" type="traffic_light_detector.py" output="screen">
+        <param name="weight_file" value="$(find yolox_ros1)/config/yolox/weight/yolox_s.pth"/>
+        <param name="exp_file" value="$(find yolox_ros1)/config/yolox/exp/yolox_s.py"/>
+        <param name="compute_device" value="cpu"/>
+        <remap from="image_raw" to="camera/image_raw"/>
+    </node>
+
+    <node name="color_detect_pub" pkg="TL_detect" type="color_detect_pub.py" output="screen">
+        <rosparam command="load" file="$(find TL_detect)/cfg/TL_param_config.yml"/>
+        <remap from="image_raw" to="tl_image"/>
+    </node>
+</launch>

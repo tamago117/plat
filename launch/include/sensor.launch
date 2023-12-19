@@ -17,7 +17,7 @@
   <arg name="laserscan_resolution" default="0.007" />
 
   <!-- start nodelet manager and driver nodelets -->
-  <include file="$(find velodyne_pointcloud)/launch/32e_points.launch">
+  <include file="$(find plat)/launch/include/32e_points.launch">
     <arg name="device_ip" value="$(arg device_ip)"/>
     <arg name="frame_id" value="$(arg frame_id)"/>
     <arg name="manager" value="$(arg manager)" />
@@ -43,10 +43,11 @@
   	<param name="angle_max" value="0.4"/>
 	</node>
 
-  <include file="$(find spinnaker_camera_driver)/launch/camera.launch"/>
+  <!--<include file="$(find spinnaker_camera_driver)/launch/camera.launch"/>-->
+  <include file="$(find realsense2_camera)/launch/rs_camera.launch" />
 
   <node name="serial_node"        pkg="rosserial_python"      type="serial_node.py">
-			<param name="port"              type="string"               value="/dev/ttyACM0"/>
+			<param name="port"              type="string"               value="/dev/teensy"/>
 			<param name="baud"              type="int"                  value="115200"/>
       <remap from="plat/cmd_vel" to="diff_drive_controller/cmd_vel"/>
       <remap from="plat/mode_in" to="mode"/>

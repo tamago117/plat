@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <launch>
     <arg name="way_file" default="tsukuba2023.csv"/>
-    <arg name="map_pcd" value = "$(find plat)/resources/pcd/tsukuba2023.pcd"/>
+    <arg name="map_pcd" value = "$(find plat)/resources/pcd/tsukuba2023_.pcd"/>
 
     <include file="$(find plat)/launch/navigation_3d.launch" >
         <arg name="sim" value="false"/>
